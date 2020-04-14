@@ -7,11 +7,12 @@ var saveButton = document.querySelector(".save-button");
 var form = document.querySelector('.idea-form');
 var titleInput = document.querySelector("#title-input");
 var bodyInput = document.querySelector("#body-input");
-
+var ideaCardsContainer = document.querySelector(".idea-cards");
 
 menuIcon.addEventListener('click', expandMenu);
 saveButton.addEventListener('click', makeIdeaCard);
 form.addEventListener('keyup', checkInputs);
+ideaCardsContainer.addEventListener('click', ideaCardsHandler);
 
 function checkInputs(e) {
   if(!titleInput.value || !bodyInput.value) {
@@ -48,7 +49,7 @@ function makeIdeaCard(e) {
 
 function displayIdea(idea) {
   var ideaCardContainer = document.querySelector(".idea-cards");
-  var newCardTemplate = `<article class="user-cards">
+  var newCardTemplate = `<article class="user-cards" data-id=${idea.id}>
       <span class="header-card">
         <img class="hidden comment-card-pic" src="Assets/star.svg"/>
         <img  class="comment-card-pic" src="Assets/star-active.svg"/>
@@ -62,4 +63,8 @@ function displayIdea(idea) {
       </footer>
     </article>`;
   ideaCardContainer.insertAdjacentHTML("beforeend", newCardTemplate);
+}
+
+function ideaCardsHandler(e) {
+  console.log(e.target);
 }
