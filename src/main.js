@@ -65,14 +65,12 @@ function ideaCardsHandler(e) {
   if (e.target.classList.contains('delete-icon')) {
     var targetId = e.target.closest('.user-cards').dataset.id;
     deleteIdea(targetId);
-    displayAllIdeas();
   }
   if (e.target.classList.contains('star-icon')) {
     var targetId = e.target.closest('.user-cards').dataset.id;
-    var targetIdea = findIdea(targetId);
-    targetIdea.toggleStarred();
-    displayAllIdeas();
+    findIdea(targetId).toggleStarred();
   }
+  displayAllIdeas();
 }
 
 function findIdea(id) {
