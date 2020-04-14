@@ -45,12 +45,7 @@ function makeIdeaCard(e) {
 }
 
 function displayIdea(idea) {
-  var starSrc;
-  if (idea.starred) {
-    starSrc = 'star-active'
-  } else {
-    starSrc = 'star'
-  }
+  var starSrc = idea.starred ? 'star-active' : 'star';
   var newCardTemplate = `<article class="user-cards" data-id=${idea.id}>
       <header class="header-card">
         <img class="comment-card-pic star-icon" src="Assets/${starSrc}.svg"/>
