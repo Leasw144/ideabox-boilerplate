@@ -21,10 +21,6 @@ class Idea {
   }
 
   toggleStarred() {
-    if (this.starred) {
-       this.starred = false
-    } else {
-       this.starred = true
-    }
+       this.starred = !this.starred;
   }
 }
